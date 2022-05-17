@@ -1,5 +1,9 @@
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
 html,
 body {
+  min-height: 100vh;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
@@ -22,3 +26,6 @@ li {
   padding: 0;
   list-style: none;
 }
+`;
+
+export default GlobalStyle;

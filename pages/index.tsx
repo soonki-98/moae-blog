@@ -3,7 +3,7 @@ import { Categori } from "../component/Categori";
 import { Header } from "../component/Header";
 const Home: NextPage = () => {
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div>
       <Header />
       <Categori />
     </div>

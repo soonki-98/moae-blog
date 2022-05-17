@@ -3,7 +3,9 @@ import styled from "styled-components";
 const Header = () => {
   return (
     <Wrapper>
-      <h1>Moaeblog</h1>
+      <h1>
+        <a href="/.">Moaeblog</a>
+      </h1>
       <section>
         <button>검색</button>
         <button>login</button>
