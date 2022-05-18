@@ -4,6 +4,7 @@ export interface ThemeType {
 }
 
 type ColorType = {
+  BG1: string;
   MAIN: string;
   MAINDARK: string;
 };
@@ -22,5 +23,5 @@ type FontType = {
 type FontSet = {
   fontWeight: string;
   fontSize: string;
-  "line-height": number;
+  lineHeight: number;
 };

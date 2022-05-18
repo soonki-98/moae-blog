@@ -6,16 +6,24 @@ const Categori = () => {
     <CategoriSection>
       <ul>
         <li>
-          <a href="/frontend">Front-End</a>
+          <h5>
+            <a href="/frontend">Front-End</a>
+          </h5>
         </li>
         <li>
-          <a href="/backend">Back-End</a>
+          <h5>
+            <a href="/backend">Back-End</a>
+          </h5>
         </li>
         <li>
-          <a href="/design">Design</a>
+          <h5>
+            <a href="/design">Design</a>
+          </h5>
         </li>
         <li>
-          <a href="cs">Computer Science</a>
+          <h5>
+            <a href="cs">Computer Science</a>
+          </h5>
         </li>
       </ul>
     </CategoriSection>
@@ -38,8 +46,19 @@ const CategoriSection = styled.section`
     padding: 0 10px;
   }
   a {
-    font-size: ${theme.FONT.HEAD5.fontSize};
-    font-weight: ${theme.FONT.HEAD5.fontWeight};
+    position: relative;
     color: ${theme.COLORS.MAINDARK};
+    &:hover {
+      &::before {
+        content: "";
+        width: 100%;
+        border: 1px solid;
+        position: absolute;
+        bottom: -10px;
+      }
+    }
+  }
+  h5 {
+    margin: 0;
   }
 `;

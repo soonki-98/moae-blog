@@ -28,6 +28,7 @@ const Wrapper = styled.header`
   height: 4rem;
   h1 {
     margin: 0;
+    color: ${theme.COLORS.MAIN};
   }
   section {
     display: flex;

@@ -5,7 +5,7 @@ const Description = () => {
   return (
     <Wrapper>
       <div id="title">
-        <h3>타이틀</h3>
+        <h6>타이틀</h6>
       </div>
       <div id="description">
         <p>
@@ -23,9 +23,7 @@ const Wrapper = styled.div`
   width: 100%;
   padding: 1rem;
   #title {
-    h3 {
-      font-size: ${theme.FONT.HEAD6.fontSize};
-      font-weight: ${theme.FONT.HEAD6.fontWeight};
+    h6 {
       margin: 0;
     }
   }
