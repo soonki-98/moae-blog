@@ -3,12 +3,23 @@ import Description from "./Description";
 import Footer from "./Footer";
 import Image from "./Image";
 
-const Card = () => {
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  userInfo: {
+    profileImage: string;
+    name: string;
+  };
+  titleImage: string;
+}
+
+const Card = ({ title, description, date, userInfo, titleImage }: Props) => {
   return (
     <Wrapper>
-      <Image />
-      <Description />
-      <Footer />
+      <Image titleImage={titleImage} />
+      <Description title={title} description={description} date={date} />
+      <Footer userInfo={userInfo} />
     </Wrapper>
   );
 };

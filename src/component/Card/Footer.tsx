@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import theme from "../../styles/theme";
 
-const Footer = () => {
+interface Props {
+  userInfo: {
+    profileImage: string;
+    name: string;
+  };
+}
+
+const Footer = ({ userInfo }: Props) => {
   return (
     <Wrapper>
       <div id="writer">
-        <img
-          src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_500.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90"
-          alt=""
-        />
-        아이유
+        <img src={userInfo.profileImage} alt="" />
+        {userInfo.name}
       </div>
     </Wrapper>
   );

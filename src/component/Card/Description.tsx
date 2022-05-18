@@ -1,17 +1,23 @@
 import styled from "styled-components";
 import theme from "../../styles/theme";
 
-const Description = () => {
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+}
+
+const Description = ({ title, description, date }: Props) => {
+  const [year, mounth, day] = date.split("-");
+
   return (
     <Wrapper>
       <div id="title">
-        <h6>타이틀</h6>
+        <h6>{title}</h6>
       </div>
       <div id="description">
-        <p>
-          내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
-        </p>
-        <span>2022년 5월 25일</span>
+        <p>{description}</p>
+        <span>{`${year}년 ${mounth}월 ${day}일`}</span>
       </div>
     </Wrapper>
   );
@@ -31,7 +37,7 @@ const Wrapper = styled.div`
     p {
       overflow-wrap: break-word;
       word-break: break-word;
-      height: calc(${theme.FONT.SMALL.fontSize} * 1.5 * 4);
+      height: calc(${theme.FONT.SMALL.fontSize} * 1.5 * 3);
       font-size: ${theme.FONT.SMALL.fontSize};
       line-height: 1.5;
       overflow: hidden;
