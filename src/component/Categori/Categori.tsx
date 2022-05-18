@@ -29,6 +29,7 @@ const CategoriSection = styled.section`
   width: 100vw;
   padding: 0 4rem;
   height: 4rem;
+  margin-top: 1.5rem;
   ul {
     display: flex;
     margin-left: -10px;

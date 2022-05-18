@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { GoSearch } from "react-icons/go";
+import theme from "../../styles/theme";
 
 const Header = () => {
   return (
@@ -8,10 +9,10 @@ const Header = () => {
         <a href="/.">Moaeblog</a>
       </h1>
       <section>
-        <button>
-          <GoSearch />
+        <button id="search-btn">
+          <GoSearch size={20} />
         </button>
-        <button>login</button>
+        <button id="login-btn">로그인</button>
       </section>
     </Wrapper>
   );
@@ -26,7 +27,6 @@ const Wrapper = styled.header`
   width: 100vw;
   padding: 0 4rem;
   height: 4rem;
-  margin-bottom: 50px;
   h1 {
     margin: 0;
   }
@@ -36,10 +36,29 @@ const Wrapper = styled.header`
       display: flex;
       align-items: center;
       margin: 0 10px;
-      background: none;
-      padding: 5px;
+      padding: 7px 18px;
       border: none;
       cursor: pointer;
+    }
+  }
+  #login-btn {
+    border: 1px solid;
+    border-radius: 20px;
+    font-size: 15px;
+    color: #fff;
+    background-color: ${theme.COLORS.MAIN};
+    transition: 0.3s;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  #search-btn {
+    border-radius: 50%;
+    background: none;
+    padding: 10px;
+    transition: 0.3s;
+    &:hover {
+      background-color: #eeeeee;
     }
   }
 `;
