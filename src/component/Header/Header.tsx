@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { GoSearch } from "react-icons/go";
 
 const Header = () => {
   return (
@@ -7,7 +8,9 @@ const Header = () => {
         <a href="/.">Moaeblog</a>
       </h1>
       <section>
-        <button>검색</button>
+        <button>
+          <GoSearch />
+        </button>
         <button>login</button>
       </section>
     </Wrapper>
@@ -28,8 +31,15 @@ const Wrapper = styled.header`
     margin: 0;
   }
   section {
+    display: flex;
     button {
+      display: flex;
+      align-items: center;
       margin: 0 10px;
+      background: none;
+      padding: 5px;
+      border: none;
+      cursor: pointer;
     }
   }
 `;
