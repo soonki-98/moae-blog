@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../styles/theme";
 
 const Footer = () => {
   return (
@@ -24,6 +25,7 @@ const Wrapper = styled.div`
   #writer {
     display: flex;
     align-items: center;
+    font-size: ${theme.FONT.SMALL.fontSize};
     img {
       width: 25px;
       height: 25px;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../styles/theme";
 
 const Description = () => {
   return (
@@ -23,6 +24,8 @@ const Wrapper = styled.div`
   padding: 1rem;
   #title {
     h3 {
+      font-size: ${theme.FONT.HEAD6.fontSize};
+      font-weight: ${theme.FONT.HEAD6.fontWeight};
       margin: 0;
     }
   }
@@ -30,13 +33,13 @@ const Wrapper = styled.div`
     p {
       overflow-wrap: break-word;
       word-break: break-word;
-      height: calc(0.875rem * 1.5 * 4);
-      font-size: 0.875rem;
+      height: calc(${theme.FONT.SMALL.fontSize} * 1.5 * 4);
+      font-size: ${theme.FONT.SMALL.fontSize};
       line-height: 1.5;
       overflow: hidden;
     }
     span {
-      font-size: 0.75rem;
+      font-size: ${theme.FONT.SMALL.fontSize};
     }
   }
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import theme from "../../styles/theme";
 
 const Categori = () => {
   return (
@@ -37,8 +38,8 @@ const CategoriSection = styled.section`
     padding: 0 10px;
   }
   a {
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: rgb(25, 20, 16);
+    font-size: ${theme.FONT.HEAD5.fontSize};
+    font-weight: ${theme.FONT.HEAD5.fontWeight};
+    color: ${theme.COLORS.MAINDARK};
   }
 `;
