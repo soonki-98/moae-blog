@@ -26,8 +26,7 @@ export default Categori;
 const CategoriSection = styled.section`
   display: flex;
   align-items: center;
-  width: 100vw;
-  padding: 0 4rem;
+  width: 100%;
   height: 4rem;
   margin-top: 1.5rem;
   ul {

@@ -24,8 +24,7 @@ const Wrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
-  padding: 0 4rem;
+  width: 100%;
   height: 4rem;
   h1 {
     margin: 0;

@@ -11,6 +11,10 @@ body {
   background-color: #f8f9fa;
 }
 
+#__next {
+  padding: 0 6rem;
+}
+
 a {
   color: inherit;
   text-decoration: none;
