@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { CardSection } from "../../component/Card";
 import Card from "../../component/Card/Card";
 import TopBar from "../../component/TopBar/TopBar";
 
@@ -133,11 +134,11 @@ const Home: NextPage = () => {
     <div>
       <TopBar type="scrollHeader" />
       <TopBar />
-      <section style={{ padding: "0 6rem", margin: "-1rem", display: "flex", flexWrap: "wrap", width: "100%" }}>
+      <CardSection>
         {posts.map((post, index) => {
           return <Card key={index} {...post} />;
         })}
-      </section>
+      </CardSection>
     </div>
   );
 };

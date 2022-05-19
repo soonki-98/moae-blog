@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { CardSection } from "../component/Card";
 import Card from "../component/Card/Card";
 import { Categori } from "../component/Categori";
 import { Header } from "../component/Header";
@@ -21,7 +22,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <TopBar />
-      <section style={{ margin: "-1rem", display: "flex", flexWrap: "wrap", width: "100%" }}>
+      <CardSection>
         <Card {...cardProps} />
         <Card {...cardProps} />
         <Card {...cardProps} />
@@ -30,7 +31,7 @@ const Home: NextPage = () => {
         <Card {...cardProps} />
         <Card {...cardProps} />
         <Card {...cardProps} />
-      </section>
+      </CardSection>
     </div>
   );
 };
