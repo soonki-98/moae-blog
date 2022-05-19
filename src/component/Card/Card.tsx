@@ -12,11 +12,16 @@ interface Props {
     name: string;
   };
   titleImage: string;
+  id: string;
 }
 
-const Card = ({ title, description, date, userInfo, titleImage }: Props) => {
+const Card = ({ title, description, date, userInfo, titleImage, id }: Props) => {
+  const moveToPost = () => {
+    window.location.href = `/${userInfo.name}/${id}`;
+  };
+
   return (
-    <Wrapper>
+    <Wrapper onClick={moveToPost}>
       <Image titleImage={titleImage} />
       <Description title={title} description={description} date={date} />
       <Footer userInfo={userInfo} />

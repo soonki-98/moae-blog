@@ -11,6 +11,7 @@ const Home: NextPage = () => {
   };
 
   const cardProps = {
+    id: "12398",
     title: "타이틀",
     description: "내용",
     date: "2022-05-22",
