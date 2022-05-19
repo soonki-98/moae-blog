@@ -1,4 +1,4 @@
-import { Article, PostContainer, PostHeader } from "../../component/post";
+import { PostArticle, PostContainer, PostHeader } from "../../component/Post";
 import TopBar from "../../component/TopBar/TopBar";
 
 const Post = () => {
@@ -8,7 +8,7 @@ const Post = () => {
       <TopBar location="post" />
       <PostContainer>
         <PostHeader />
-        <Article />
+        <PostArticle />
       </PostContainer>
     </div>
   );
