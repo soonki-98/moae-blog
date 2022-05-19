@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import theme from "../../styles/theme";
+import { useRouter } from "next/router";
 
 const PostHeader = () => {
+  const router = useRouter();
+
+  const moveToBack = () => {
+    router.back();
+  };
+
   return (
     <Wrapper>
       <InputContainer>
@@ -13,7 +20,7 @@ const PostHeader = () => {
         <button id="submit" type="button">
           제출하기
         </button>
-        <button id="goback" type="button">
+        <button onClick={moveToBack} id="goback" type="button">
           돌아가기
         </button>
       </SubmitContainer>
