@@ -32,6 +32,7 @@ const Wrapper = styled.div`
   border-radius: 6px;
   box-shadow: 0 3px 3px #e6e6e6;
   transition: 0.3s;
+  cursor: pointer;
   &:hover {
     transform: translateY(-6px);
   }

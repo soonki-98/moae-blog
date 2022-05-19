@@ -2,29 +2,41 @@ import styled from "styled-components";
 import theme from "../../styles/theme";
 
 const Categori = () => {
+  const categories = [
+    {
+      id: "1283078as",
+      name: "Front-End",
+      link: "frontend",
+    },
+    {
+      id: "1237uyxzc",
+      name: "Back-End",
+      link: "backend",
+    },
+    {
+      id: "123213uyxzc",
+      name: "Design",
+      link: "design",
+    },
+    {
+      id: "1237asdyxzc",
+      name: "Computer Science",
+      link: "computerscience",
+    },
+  ];
+
   return (
     <CategoriSection>
       <ul>
-        <li>
-          <h5>
-            <a href="/frontend">Front-End</a>
-          </h5>
-        </li>
-        <li>
-          <h5>
-            <a href="/backend">Back-End</a>
-          </h5>
-        </li>
-        <li>
-          <h5>
-            <a href="/design">Design</a>
-          </h5>
-        </li>
-        <li>
-          <h5>
-            <a href="cs">Computer Science</a>
-          </h5>
-        </li>
+        {categories.map((categori) => {
+          return (
+            <li id={categori.id}>
+              <h5>
+                <a href={`/categori/${categori.link}`}>{categori.name}</a>
+              </h5>
+            </li>
+          );
+        })}
       </ul>
     </CategoriSection>
   );
