@@ -12,10 +12,6 @@ body {
   background-color: ${theme.COLORS.BG1};
 }
 
-#__next {
-  padding: 0 6rem;
-}
-
 a {
   color: inherit;
   text-decoration: none;

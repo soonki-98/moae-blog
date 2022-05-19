@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { GoSearch } from "react-icons/go";
 import theme from "../../styles/theme";
+import React from "react";
 
 const Header = () => {
   return (
@@ -18,7 +19,7 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
 
 const Wrapper = styled.header`
   display: flex;

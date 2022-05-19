@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import theme from "../../styles/theme";
 
@@ -30,7 +31,7 @@ const Categori = () => {
       <ul>
         {categories.map((categori) => {
           return (
-            <li id={categori.id}>
+            <li key={categori.id}>
               <h5>
                 <a href={`/categori/${categori.link}`}>{categori.name}</a>
               </h5>
@@ -42,7 +43,7 @@ const Categori = () => {
   );
 };
 
-export default Categori;
+export default React.memo(Categori);
 
 const CategoriSection = styled.section`
   display: flex;

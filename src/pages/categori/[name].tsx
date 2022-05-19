@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Card from "../../component/Card/Card";
-import { Categori } from "../../component/Categori";
-import { Header } from "../../component/Header";
+import TopBar from "../../component/TopBar/TopBar";
 
 const Home: NextPage = () => {
   const userInfo = {
@@ -56,15 +55,87 @@ const Home: NextPage = () => {
     {
       ...cardProps,
     },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
+    {
+      ...cardProps,
+    },
   ];
 
   return (
     <div>
-      <Header />
-      <Categori />
-      <section style={{ margin: "-1rem", display: "flex", flexWrap: "wrap", width: "100%" }}>
-        {posts.map((post) => {
-          return <Card {...post} />;
+      <TopBar type="scrollHeader" />
+      <TopBar />
+      <section style={{ padding: "0 6rem", margin: "-1rem", display: "flex", flexWrap: "wrap", width: "100%" }}>
+        {posts.map((post, index) => {
+          return <Card key={index} {...post} />;
         })}
       </section>
     </div>
