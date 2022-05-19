@@ -1,13 +1,11 @@
 import styled from "styled-components";
-import PostEditor from "../component/MarkdownRender/PostEditer";
-import TopBar from "../component/TopBar/TopBar";
+import { PostEditor, PostHeader } from "../component/MarkdownRender";
 import theme from "../styles/theme";
 
 const Write = () => {
   return (
     <div>
-      <TopBar type="scrollHeader" location="post" />
-      <TopBar location="post" />
+      <PostHeader />
       <PostWrapper>
         <PostEditor />
       </PostWrapper>

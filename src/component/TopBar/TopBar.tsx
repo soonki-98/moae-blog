@@ -1,5 +1,5 @@
 import { throttle } from "lodash";
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import styled, { css } from "styled-components";
 import theme from "../../styles/theme";
 import { Categori } from "../Categori";
@@ -10,18 +10,19 @@ interface Props {
   location?: "post";
 }
 
-interface scrollType {
+interface ScrollType {
   value: number;
   direction: "down" | "up";
   scrollUpTimes: number;
 }
 
 const TopBar = ({ type, location }: Props) => {
-  const [pageY, setPageY] = useState<scrollType>({ value: 0, direction: "down", scrollUpTimes: 0 });
+  const [pageY, setPageY] = useState<ScrollType>({ value: 0, direction: "down", scrollUpTimes: 0 });
 
   const detectScroll = useCallback(() => {
     setPageY(({ value, scrollUpTimes }) => {
-      if (value > window.scrollY) return { value: window.scrollY, direction: "up", scrollUpTimes: scrollUpTimes + 1 };
+      if (value > window.scrollY)
+        return { value: window.scrollY, direction: "up", scrollUpTimes: scrollUpTimes + 1 };
       else return { value: window.scrollY, direction: "down", scrollUpTimes: scrollUpTimes - 1 };
     });
   }, [pageY]);
@@ -36,7 +37,7 @@ const TopBar = ({ type, location }: Props) => {
   return (
     <Container type={type} pageY={pageY}>
       <Header />
-      {location !== "post" && <Categori />}
+      {location !== "post" && location !== "write" && <Categori />}
     </Container>
   );
 };
@@ -45,9 +46,8 @@ export default React.memo(TopBar);
 
 const Container = styled.div<{
   type?: "scrollHeader";
-  pageY: scrollType;
+  pageY: ScrollType;
 }>`
-  max-height: 200px;
   background-color: ${theme.COLORS.BG1};
   z-index: 99;
   width: 100%;
@@ -68,26 +68,14 @@ const Container = styled.div<{
         }
       }
       if (props.pageY.value <= 50) props.pageY.scrollUpTimes = 0;
-      switch (props.pageY.direction) {
-        case "down":
-          return css`
-            padding-bottom: 10px;
-            position: fixed;
-            top: 0px;
-            margin-top: ${marginTop > 0 ? 0 : marginTop}px;
-            opacity: ${props.pageY.value > 50 ? 1 : 0};
-            border-bottom: 1px solid ${theme.COLORS.MAIN};
-          `;
-        case "up":
-          return css`
-            padding-bottom: 10px;
-            position: fixed;
-            top: 0px;
-            margin-top: ${marginTop > 0 ? 0 : marginTop}px;
-            opacity: ${props.pageY.value > 50 ? 1 : 0};
-            border-bottom: 1px solid ${theme.COLORS.MAIN};
-          `;
-      }
+      return css`
+        padding-bottom: 10px;
+        position: fixed;
+        top: 0px;
+        margin-top: ${marginTop > 0 ? 0 : marginTop}px;
+        opacity: ${props.pageY.value > 50 ? 1 : 0};
+        border-bottom: 1px solid ${theme.COLORS.MAIN};
+      `;
     }
   }};
 `;

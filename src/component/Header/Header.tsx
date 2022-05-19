@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { GoSearch } from "react-icons/go";
 import theme from "../../styles/theme";
 import React from "react";
+import Link from "next/link";
 
 const Header = () => {
   return (
     <Wrapper>
       <h1>
-        <a href="/.">Moaeblog</a>
+        <Link href="/.">Moaeblog</Link>
       </h1>
       <section>
         <button id="search-btn">
