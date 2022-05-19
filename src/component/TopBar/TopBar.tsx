@@ -47,7 +47,6 @@ const Container = styled.div<{
   type?: "scrollHeader";
   pageY: scrollType;
 }>`
-  min-height: 100px;
   max-height: 200px;
   background-color: ${theme.COLORS.BG1};
   z-index: 99;
@@ -72,7 +71,7 @@ const Container = styled.div<{
       switch (props.pageY.direction) {
         case "down":
           return css`
-            height: 150px;
+            padding-bottom: 10px;
             position: fixed;
             top: 0px;
             margin-top: ${marginTop > 0 ? 0 : marginTop}px;
@@ -81,7 +80,7 @@ const Container = styled.div<{
           `;
         case "up":
           return css`
-            height: 150px;
+            padding-bottom: 10px;
             position: fixed;
             top: 0px;
             margin-top: ${marginTop > 0 ? 0 : marginTop}px;

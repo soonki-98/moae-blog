@@ -30,7 +30,7 @@ const PostHeader = () => {
 export default React.memo(PostHeader);
 
 const Wrapper = styled.div`
-  padding: 0 2rem;
+  padding-right: 4rem;
 `;
 
 const Title = styled.div`
