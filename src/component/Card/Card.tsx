@@ -1,3 +1,4 @@
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import Description from "./Description";
 import Footer from "./Footer";
@@ -16,9 +17,10 @@ interface Props {
 }
 
 const Card = ({ title, description, date, userInfo, titleImage, id }: Props) => {
-  const moveToPost = () => {
+  const moveToPost = useCallback(() => {
+    if (typeof window === undefined) return;
     window.location.href = `/${userInfo.name}/${id}`;
-  };
+  }, []);
 
   return (
     <Wrapper onClick={moveToPost}>
@@ -29,7 +31,7 @@ const Card = ({ title, description, date, userInfo, titleImage, id }: Props) => 
   );
 };
 
-export default Card;
+export default React.memo(Card);
 
 const Wrapper = styled.div`
   width: calc(20% - 2rem);

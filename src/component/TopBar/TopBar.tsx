@@ -7,6 +7,7 @@ import { Header } from "../Header";
 
 interface Props {
   type?: "scrollHeader";
+  location?: "post";
 }
 
 interface scrollType {
@@ -15,7 +16,7 @@ interface scrollType {
   scrollUpTimes: number;
 }
 
-const TopBar = ({ type }: Props) => {
+const TopBar = ({ type, location }: Props) => {
   const [pageY, setPageY] = useState<scrollType>({ value: 0, direction: "down", scrollUpTimes: 0 });
 
   const detectScroll = useCallback(() => {
@@ -35,7 +36,7 @@ const TopBar = ({ type }: Props) => {
   return (
     <Container type={type} pageY={pageY}>
       <Header />
-      <Categori />
+      {location !== "post" && <Categori />}
     </Container>
   );
 };
@@ -46,7 +47,8 @@ const Container = styled.div<{
   type?: "scrollHeader";
   pageY: scrollType;
 }>`
-  height: 200px;
+  min-height: 100px;
+  max-height: 200px;
   background-color: ${theme.COLORS.BG1};
   z-index: 99;
   width: 100%;
