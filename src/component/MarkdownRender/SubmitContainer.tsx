@@ -3,8 +3,9 @@ import styled from "styled-components";
 import theme from "../../styles/theme";
 
 const SubmitContainer = () => {
+  const router = useRouter();
+
   const moveToBack = () => {
-    const router = useRouter();
     router.back();
   };
 
