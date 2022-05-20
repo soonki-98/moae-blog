@@ -30,8 +30,12 @@ const HotPosts = () => {
 
   return (
     <Wrapper>
-      <h3>이주의 게시글</h3>
-      <Carousel slideToShow={device === "desktop" ? 5 : 2} autoplaySpeed={8000} arrowLocation="bottom-side" isAutoplay>
+      <Carousel
+        slideToShow={device === "desktop" ? 5 : 2}
+        autoplaySpeed={8000}
+        arrowLocation="bottom-side"
+        isAutoplay
+      >
         <Card {...cardProps} width={"100%"} />
         <Card {...cardProps} width={"100%"} />
         <Card {...cardProps} width={"100%"} />
@@ -52,8 +56,6 @@ export default HotPosts;
 const Wrapper = styled.div`
   max-height: 700px;
   margin: 2rem 0 4rem 0;
-  background: ${theme.COLORS.MAIN};
-  padding: 2rem 0 4rem 0;
   h3 {
     padding: 0 6rem;
     margin: 0;

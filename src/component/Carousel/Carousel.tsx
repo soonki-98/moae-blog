@@ -2,6 +2,7 @@ import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 import React, { cloneElement, ReactElement, useMemo, useState } from "react";
 import styled, { css } from "styled-components";
 import { useInterval } from "./hooks";
+import theme from "../../styles/theme";
 
 interface Props {
   children: React.ReactNode;
@@ -23,73 +24,99 @@ type ArrowLocationType = {
   translateY?: string;
 };
 
-const Carousel = React.forwardRef(
-  (
-    {
-      children,
-      width,
-      transition = 1000,
-      autoplaySpeed = 3000,
-      slideToShow = 1,
-      isArrowShow = true,
-      isAutoplay = false,
-      arrowLocation = "mid-side",
-      prevArrowIcon = <FaArrowCircleLeft />,
-      nextArrowIcon = <FaArrowCircleRight />,
-    }: Props,
-    ref: React.ForwardedRef<HTMLDivElement>
-  ) => {
-    const [showIndex, setShowIndex] = useState<number>(0);
+const Carousel = ({
+  children,
+  width,
+  transition = 1000,
+  autoplaySpeed = 3000,
+  slideToShow = 1,
+  isArrowShow = true,
+  isAutoplay = false,
+  arrowLocation = "mid-side",
+  prevArrowIcon = <FaArrowCircleLeft />,
+  nextArrowIcon = <FaArrowCircleRight />,
+}: Props) => {
+  const [showIndex, setShowIndex] = useState<number>(0);
+  const [coordinateX, setCoordinateX] = useState(0);
 
-    const childrenLen = useMemo(() => React.Children.toArray(children).length, [children]);
-    const lastChildIndex = useMemo(() => Math.floor((childrenLen - 1) / slideToShow), [childrenLen, slideToShow]);
+  const childrenLen = useMemo(() => React.Children.toArray(children).length, [children]);
+  const lastChildIndex = useMemo(
+    () => Math.floor((childrenLen - 1) / slideToShow),
+    [childrenLen, slideToShow]
+  );
 
-    const showPrev = () => {
-      if (showIndex === 0) return setShowIndex(() => lastChildIndex);
-      setShowIndex((prev) => prev - 1);
-    };
+  const showPrev = () => {
+    if (showIndex === 0) return setShowIndex(() => lastChildIndex);
+    setShowIndex((prev) => prev - 1);
+  };
 
-    const showNext = () => {
-      if (showIndex === lastChildIndex) return setShowIndex(() => 0);
-      setShowIndex((prev) => prev + 1);
-    };
+  const showNext = () => {
+    if (showIndex === lastChildIndex) return setShowIndex(() => 0);
+    setShowIndex((prev) => prev + 1);
+  };
 
-    /* These const variables are ArrowIcons received to props */
-    const sizedPrevArrowIcon = useMemo(() => cloneElement(prevArrowIcon), [prevArrowIcon]);
-    const sizedNextArrowIcon = useMemo(() => cloneElement(nextArrowIcon), [nextArrowIcon]);
+  /* These const variables are ArrowIcons received to props */
+  const sizedPrevArrowIcon = useMemo(() => cloneElement(prevArrowIcon), [prevArrowIcon]);
+  const sizedNextArrowIcon = useMemo(() => cloneElement(nextArrowIcon), [nextArrowIcon]);
 
-    /* useInterval is setTimeout custom hook */
-    isAutoplay && useInterval(showNext, autoplaySpeed, [showIndex]);
+  /* useInterval is setTimeout custom hook */
+  useInterval(
+    () => {
+      if (isAutoplay) showNext();
+      else return;
+    },
+    autoplaySpeed,
+    [showIndex]
+  );
 
-    return (
-      <Wrapper arrowLocation={arrowLocation} width={width}>
-        {isArrowShow && (
-          <div className="icon-wrapper" id="prev-button" onClick={showPrev}>
-            {sizedPrevArrowIcon}
+  const onMouseDown = (e: any) => {
+    setCoordinateX(e.clientX);
+  };
+
+  const onMouseUp = (e: any) => {
+    if (coordinateX - e.clientX > 100) showNext();
+    if (e.clientX - coordinateX > 100) showPrev();
+    setCoordinateX(0);
+  };
+
+  return (
+    <Wrapper
+      arrowLocation={arrowLocation}
+      width={width}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+    >
+      <h3>이주의 게시글</h3>
+      {isArrowShow && (
+        <div className="icon-wrapper" id="prev-button" onClick={showPrev}>
+          {sizedPrevArrowIcon}
+        </div>
+      )}
+      <Container len={childrenLen} transition={transition} showIndex={showIndex}>
+        <div className="carousel-wrapper">
+          <div className="carousel-container">
+            {React.Children.map(children, (child) => {
+              return (
+                <ChildrenWrapper
+                  len={childrenLen}
+                  slideToShow={slideToShow}
+                  key={child?.toString()}
+                >
+                  {child}
+                </ChildrenWrapper>
+              );
+            })}
           </div>
-        )}
-        <Container ref={ref} len={childrenLen} transition={transition} showIndex={showIndex}>
-          <div className="carousel-wrapper">
-            <div className="carousel-container">
-              {React.Children.map(children, (child) => {
-                return (
-                  <ChildrenWrapper len={childrenLen} slideToShow={slideToShow} key={child?.toString()}>
-                    {child}
-                  </ChildrenWrapper>
-                );
-              })}
-            </div>
-          </div>
-        </Container>
-        {isArrowShow && (
-          <div className="icon-wrapper" id="next-button" onClick={showNext}>
-            {sizedNextArrowIcon}
-          </div>
-        )}
-      </Wrapper>
-    );
-  }
-);
+        </div>
+      </Container>
+      {isArrowShow && (
+        <div className="icon-wrapper" id="next-button" onClick={showNext}>
+          {sizedNextArrowIcon}
+        </div>
+      )}
+    </Wrapper>
+  );
+};
 
 export default React.memo(Carousel);
 
@@ -108,6 +135,8 @@ const Wrapper = styled.div<{
   arrowLocation: "bottom" | "mid-side" | "top" | "bottom-side" | "top-side";
   width?: string;
 }>`
+  background: ${theme.COLORS.MAIN};
+  padding: 2rem 0 4rem 0;
   width: ${(props) => props.width || "100%"};
   position: relative;
   margin: 0 auto;
@@ -129,7 +158,7 @@ const Wrapper = styled.div<{
         location.bottom = "100%";
         break;
       case "bottom":
-        location.top = "100%";
+        location.top = "90%";
         break;
       case "mid":
         location.top = "50%";
