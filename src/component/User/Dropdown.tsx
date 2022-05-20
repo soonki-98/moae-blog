@@ -1,4 +1,5 @@
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 import styled from "styled-components";
 import theme from "../../styles/theme";
 
@@ -9,11 +10,15 @@ const Dropdown = () => {
   return (
     <Wrapper>
       <ul>
-        <li>내 글</li>
-        <li>
-          <a href="/write">글 작성</a>
-        </li>
-        <li onClick={clickToLogout}>로그아웃</li>
+        <a href="/soonki">
+          <li>내 글</li>
+        </a>
+        <a href="/write">
+          <li>글 작성</li>
+        </a>
+        <Link href="/.">
+          <li onClick={clickToLogout}>로그아웃</li>
+        </Link>
       </ul>
     </Wrapper>
   );

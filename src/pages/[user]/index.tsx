@@ -1,9 +1,7 @@
-import type { NextPage } from "next";
-import { CardSection } from "../component/Card";
-import Card from "../component/Card/Card";
-import TopBar from "../component/TopBar/TopBar";
+import { Card, CardSection } from "../../component/Card";
+import TopBar from "../../component/TopBar/TopBar";
 
-const Home: NextPage = () => {
+const User = () => {
   const userInfo = {
     profileImage:
       "https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_500.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90",
@@ -19,7 +17,6 @@ const Home: NextPage = () => {
     titleImage:
       "https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_500.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90",
   };
-
   return (
     <div>
       <TopBar type="scrollHeader" />
@@ -38,4 +35,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default User;
