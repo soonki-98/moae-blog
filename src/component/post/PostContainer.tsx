@@ -44,6 +44,9 @@ const Wrapper = styled.div`
   width: 70vw;
   margin: 0 auto;
   min-height: calc(100vh - 200px);
+  @media (max-width: 568px) {
+    width: 100vw;
+  }
 `;
 
 const Side = styled.section<{
@@ -81,10 +84,16 @@ const Side = styled.section<{
     font-size: 14px;
     line-height: ${theme.FONT.SMALL.lineHeight};
   }
+  @media (max-width: 568px) {
+    display: none;
+  }
 `;
 
 const Main = styled.main`
   width: 60%;
+  @media (max-width: 568px) {
+    width: 90%;
+  }
 `;
 
 const LikeAndShare = styled.div`

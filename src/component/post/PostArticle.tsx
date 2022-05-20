@@ -37,4 +37,7 @@ const Wrapper = styled.article`
     font-size: ${theme.FONT.NORMAL.fontSize};
     line-height: ${theme.FONT.NORMAL.lineHeight};
   }
+  @media (max-width: 568px) {
+    padding-right: 0;
+  }
 `;
