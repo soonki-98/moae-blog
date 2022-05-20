@@ -21,8 +21,7 @@ const TopBar = ({ type, location }: Props) => {
 
   const detectScroll = useCallback(() => {
     setPageY(({ value, scrollUpTimes }) => {
-      if (value > window.scrollY)
-        return { value: window.scrollY, direction: "up", scrollUpTimes: scrollUpTimes + 1 };
+      if (value > window.scrollY) return { value: window.scrollY, direction: "up", scrollUpTimes: scrollUpTimes + 1 };
       else return { value: window.scrollY, direction: "down", scrollUpTimes: scrollUpTimes - 1 };
     });
   }, [pageY]);

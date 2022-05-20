@@ -3,12 +3,12 @@ import { GoSearch } from "react-icons/go";
 import theme from "../../styles/theme";
 import React from "react";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import UserSection from "./UserSection";
+import LoginSection from "./LoginSection";
 
 const Header = () => {
-  const clickToLogin = () => {
-    signIn("google");
-  };
+  const session = useSession();
 
   return (
     <Wrapper>
@@ -19,9 +19,7 @@ const Header = () => {
         <button id="search-btn">
           <GoSearch size={20} />
         </button>
-        <button id="login-btn" onClick={clickToLogin}>
-          로그인
-        </button>
+        {session.data ? <UserSection img={session.data.user?.image} /> : <LoginSection />}
       </section>
     </Wrapper>
   );
