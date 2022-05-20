@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CardSection } from "../component/Card";
 import Card from "../component/Card/Card";
 import Carousel from "../component/Carousel/Carousel";
+import HotPosts from "../component/HotPosts/HotPosts";
 import TopBar from "../component/TopBar/TopBar";
 import theme from "../styles/theme";
 
@@ -34,28 +35,7 @@ const Home: NextPage = () => {
     <div>
       <TopBar type="scrollHeader" />
       <TopBar />
-      <div
-        style={{
-          maxHeight: "700px",
-          margin: "2rem 0 4rem 0",
-          background: `${theme.COLORS.MAIN}`,
-          padding: "2rem 0 4rem 0",
-        }}
-      >
-        <h3 style={{ padding: "0 6rem", margin: "0", color: "#ececec" }}>이번주 핫한 게시물</h3>
-        <Carousel slideToShow={device === "desktop" ? 5 : 2} autoplaySpeed={8000} arrowLocation="bottom-side">
-          <Card {...cardProps} width={"100%"} />
-          <Card {...cardProps} width={"100%"} />
-          <Card {...cardProps} width={"100%"} />
-          <Card {...cardProps} width={"100%"} />
-          <Card {...cardProps} width={"100%"} />
-          <Card {...cardProps} width={"100%"} />
-          <Card {...cardProps} width={"100%"} />
-          <Card {...cardProps} width={"100%"} />
-          <Card {...cardProps} width={"100%"} />
-          <Card {...cardProps} width={"100%"} />
-        </Carousel>
-      </div>
+      <HotPosts />
       <CardSection>
         <Card {...cardProps} />
         <Card {...cardProps} />
