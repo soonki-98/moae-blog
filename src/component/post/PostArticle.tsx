@@ -32,7 +32,6 @@ const Wrapper = styled.article`
   padding-right: 4rem;
   margin-top: 3rem;
   width: 100%;
-  height: 100%;
   p {
     font-size: ${theme.FONT.NORMAL.fontSize};
     line-height: ${theme.FONT.NORMAL.lineHeight};
