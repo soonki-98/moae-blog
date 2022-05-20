@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { PostEditor, PostHeader } from "../component/MarkdownRender";
+import SubmitContainer from "../component/MarkdownRender/SubmitContainer";
 import theme from "../styles/theme";
 
 const Write = () => {
@@ -9,6 +10,7 @@ const Write = () => {
       <PostWrapper>
         <PostEditor />
       </PostWrapper>
+      <SubmitContainer />
     </div>
   );
 };
@@ -29,6 +31,15 @@ const PostWrapper = styled.div`
     }
     &::-webkit-scrollbar-thumb {
       background-color: ${theme.COLORS.MAIN};
+    }
+  }
+  @media (max-width: 568px) {
+    padding: 0;
+    .ProseMirror,
+    .toastui-editor-contents,
+    .toastui-editor-md-preview {
+      font-size: 14px;
+      padding: 0;
     }
   }
 `;

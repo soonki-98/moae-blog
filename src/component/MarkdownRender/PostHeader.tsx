@@ -1,13 +1,15 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../../styles/theme";
-import { useRouter } from "next/router";
+import SubmitContainer from "./SubmitContainer";
 
 const PostHeader = () => {
-  const router = useRouter();
+  const [device, setDevice] = useState<"desktop" | "mobile">("desktop");
 
-  const moveToBack = () => {
-    router.back();
-  };
+  useEffect(() => {
+    if (window.document.documentElement.clientWidth <= 568) setDevice("mobile");
+    else setDevice("desktop");
+  });
 
   return (
     <Wrapper>
@@ -16,14 +18,7 @@ const PostHeader = () => {
         <hr />
         <input id="tags" placeholder="태그를 작성하세요" />
       </InputContainer>
-      <SubmitContainer>
-        <button id="submit" type="button">
-          제출하기
-        </button>
-        <button onClick={moveToBack} id="goback" type="button">
-          돌아가기
-        </button>
-      </SubmitContainer>
+      {device !== "mobile" && <SubmitContainer />}
     </Wrapper>
   );
 };
@@ -36,6 +31,9 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   padding: 2rem 6rem;
+  @media (max-width: 568px) {
+    padding: 1rem 0;
+  }
 `;
 
 const InputContainer = styled.div`
@@ -69,30 +67,13 @@ const InputContainer = styled.div`
     height: 5px;
     border: none;
   }
-`;
-
-const SubmitContainer = styled.div`
-  button {
-    padding: 6px 15px;
-    border-radius: 6px;
-    border: none;
-    font-size: ${theme.FONT.HEAD5.fontSize};
-    font-weight: bold;
-    cursor: pointer;
-  }
-  #submit {
-    background-color: ${theme.COLORS.MAIN};
-    color: #fff;
-    &:hover {
-      opacity: 0.9;
+  @media (max-width: 568px) {
+    width: 100%;
+    #title {
+      font-size: ${theme.FONT.HEAD3.fontSize};
     }
-  }
-  #goback {
-    margin-left: 2rem;
-    background-color: ${theme.COLORS.BG1};
-    color: ${theme.COLORS.MAIN};
-    &:hover {
-      filter: brightness(90%);
+    #tags {
+      font-size: ${theme.FONT.HEAD6.fontSize};
     }
   }
 `;
