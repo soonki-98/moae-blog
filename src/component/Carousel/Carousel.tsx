@@ -85,6 +85,8 @@ const Carousel = ({
       width={width}
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
+      onTouchStart={onMouseDown}
+      onTouchEnd={onMouseUp}
     >
       <h3>이주의 게시글</h3>
       {isArrowShow && (
