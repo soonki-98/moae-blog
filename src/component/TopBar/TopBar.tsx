@@ -2,10 +2,11 @@ import { throttle } from "lodash";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import styled, { css } from "styled-components";
 import theme from "../../styles/theme";
+import { CategoriesType } from "../../types/categories";
 import { Categori } from "../Categori";
 import { Header } from "../Header";
 
-interface Props {
+interface Props extends CategoriesType {
   type?: "scrollHeader";
   location?: "post";
   user?: string;
@@ -17,7 +18,7 @@ interface ScrollType {
   scrollUpTimes: number;
 }
 
-const TopBar = ({ type, location, user }: Props) => {
+const TopBar = ({ type, location, user, categories }: Props) => {
   const [pageY, setPageY] = useState<ScrollType>({ value: 0, direction: "down", scrollUpTimes: 0 });
 
   const detectScroll = useCallback(() => {
@@ -38,7 +39,7 @@ const TopBar = ({ type, location, user }: Props) => {
   return (
     <Container type={type} pageY={pageY}>
       <Header user={user} />
-      {location !== "post" && location !== "write" && <Categori />}
+      {location !== "post" && location !== "write" && <Categori categories={categories} />}
     </Container>
   );
 };

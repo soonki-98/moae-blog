@@ -1,41 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import theme from "../../styles/theme";
+import { CategoriesType } from "../../types/categories";
 
-const Categori = () => {
-  const categories = [
-    {
-      id: "1283078as",
-      name: "Front-End",
-      link: "frontend",
-    },
-    {
-      id: "1237uyxzc",
-      name: "Back-End",
-      link: "backend",
-    },
-    {
-      id: "123213uyxzc",
-      name: "Design",
-      link: "design",
-    },
-    {
-      id: "1237asdyxzc",
-      name: "Computer Science",
-      link: "computerscience",
-    },
-    {
-      id: "1237asdyxzc",
-      name: "Computer Science",
-      link: "computerscience",
-    },
-    {
-      id: "1237asdyxzc",
-      name: "Computer Science",
-      link: "computerscience",
-    },
-  ];
-
+const Categori = ({ categories }: CategoriesType) => {
   return (
     <CategoriSection>
       <ul>
@@ -43,7 +11,7 @@ const Categori = () => {
           return (
             <li key={categori.id}>
               <h5>
-                <a href={`/categori/${categori.link}`}>{categori.name}</a>
+                <a href={`${categori.link}`}>{categori.name}</a>
               </h5>
             </li>
           );

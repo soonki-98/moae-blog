@@ -1,7 +1,7 @@
-import { Card, CardSection } from "../../component/Card";
-import TopBar from "../../component/TopBar/TopBar";
+import { Card, CardSection } from "../../../component/Card";
+import TopBar from "../../../component/TopBar/TopBar";
 
-const User = () => {
+const TagName = () => {
   const categories = [
     {
       id: "1283078as",
@@ -14,6 +14,7 @@ const User = () => {
       link: "/soonki/tags/typescript",
     },
   ];
+
   const userInfo = {
     profileImage:
       "https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_500.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90",
@@ -29,6 +30,7 @@ const User = () => {
     titleImage:
       "https://cdnimg.melon.co.kr/cm2/artistcrop/images/002/61/143/261143_20210325180240_500.jpg?61e575e8653e5920470a38d1482d7312/melon/optimize/90",
   };
+
   return (
     <div>
       <TopBar type="scrollHeader" user="soonki" categories={categories} />
@@ -47,4 +49,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default TagName;
