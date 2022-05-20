@@ -43,4 +43,7 @@ const Wrapper = styled.div`
   &:hover {
     transform: translateY(-6px);
   }
+  @media (max-width: 568px) {
+    width: 100%;
+  }
 `;

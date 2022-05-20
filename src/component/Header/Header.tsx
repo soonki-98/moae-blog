@@ -48,7 +48,7 @@ const Wrapper = styled.header`
       cursor: pointer;
     }
   }
-  #login-btn {
+  .login-btn {
     border: 1px solid;
     border-radius: 20px;
     font-size: 15px;
@@ -59,6 +59,7 @@ const Wrapper = styled.header`
       opacity: 0.9;
     }
   }
+
   #search-btn {
     border-radius: 50%;
     background: none;
@@ -66,6 +67,11 @@ const Wrapper = styled.header`
     transition: 0.3s;
     &:hover {
       background-color: #eeeeee;
+    }
+  }
+  @media (max-width: 568px) {
+    #write-btn {
+      display: none;
     }
   }
 `;

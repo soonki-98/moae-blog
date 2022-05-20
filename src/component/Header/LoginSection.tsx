@@ -8,7 +8,7 @@ const LoginSection = () => {
 
   return (
     <SectionWrapper>
-      <button id="login-btn" onClick={clickToLogin}>
+      <button className="login-btn" onClick={clickToLogin}>
         로그인
       </button>
     </SectionWrapper>

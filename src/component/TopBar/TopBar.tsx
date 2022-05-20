@@ -77,4 +77,7 @@ const Container = styled.div<{
       `;
     }
   }};
+  @media (max-width: 568px) {
+    padding: 0 1rem;
+  }
 `;

@@ -24,6 +24,16 @@ const Categori = () => {
       name: "Computer Science",
       link: "computerscience",
     },
+    {
+      id: "1237asdyxzc",
+      name: "Computer Science",
+      link: "computerscience",
+    },
+    {
+      id: "1237asdyxzc",
+      name: "Computer Science",
+      link: "computerscience",
+    },
   ];
 
   return (
@@ -73,5 +83,14 @@ const CategoriSection = styled.section`
   }
   h5 {
     margin: 0;
+  }
+  @media (max-width: 568px) {
+    ul {
+      width: 100%;
+      overflow: hidden;
+    }
+    h5 {
+      font-size: ${theme.FONT.HEAD6};
+    }
   }
 `;

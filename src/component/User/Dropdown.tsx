@@ -10,6 +10,9 @@ const Dropdown = () => {
     <Wrapper>
       <ul>
         <li>내 글</li>
+        <li>
+          <a href="/write">글 작성</a>
+        </li>
         <li onClick={clickToLogout}>로그아웃</li>
       </ul>
     </Wrapper>
@@ -36,5 +39,10 @@ const Wrapper = styled.div`
     &:hover {
       filter: brightness(90%);
     }
+  }
+  @media (max-width: 568px) {
+    padding: 0 1rem;
+    left: -100%;
+    transform: translateX(-55%);
   }
 `;

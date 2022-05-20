@@ -13,7 +13,7 @@ const UserSection = ({ img }: Props) => {
   return (
     <SectionWrapper>
       <Profile img={img} />
-      <button id="login-btn" onClick={clickToLogout}>
+      <button className="login-btn" id="write-btn" onClick={clickToLogout}>
         글 작성
       </button>
     </SectionWrapper>

@@ -17,4 +17,8 @@ const Wrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  @media (max-width: 568px) {
+    padding: 0 1rem;
+    margin: 0;
+  }
 `;
