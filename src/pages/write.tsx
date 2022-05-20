@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { PostEditor, PostHeader } from "../component/MarkdownRender";
+import { PostEditor, MarkdownPostHeader } from "../component/MarkdownRender";
 import SubmitContainer from "../component/MarkdownRender/SubmitContainer";
 import theme from "../styles/theme";
 
 const Write = () => {
   return (
     <div>
-      <PostHeader />
+      <MarkdownPostHeader />
       <PostWrapper>
         <PostEditor />
       </PostWrapper>
