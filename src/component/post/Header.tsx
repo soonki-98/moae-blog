@@ -37,6 +37,11 @@ const Title = styled.div`
   h1 {
     font-weight: bolder;
   }
+  @media (max-width: 568px) {
+    h1 {
+      font-size: ${theme.FONT.HEAD3.fontSize};
+    }
+  }
 `;
 
 const WriteInfo = styled.div`

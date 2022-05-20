@@ -54,4 +54,13 @@ const Wrapper = styled.div`
       opacity: 0.9;
     }
   }
+  @media (max-width: 568px) {
+    padding: 0;
+    h3 {
+      font-size: ${theme.FONT.HEAD5.fontSize};
+    }
+    .comment-container {
+      font-size: ${theme.FONT.NORMAL.fontSize};
+    }
+  }
 `;

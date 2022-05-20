@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import { MdThumbUp, MdOutlineShare, MdOutlineThumbUpAlt } from "react-icons/md";
 import theme from "../../styles/theme";
+import LikeAndShare from "./LikeAndShare";
 
 interface Props {
   children: React.ReactNode;
@@ -17,21 +17,10 @@ const PostContainer = ({ children }: Props) => {
   return (
     <Wrapper>
       <Side direction="left">
-        <LikeAndShare>
-          {isLike ? (
-            <MdThumbUp color="#ce4c4c" onClick={toggleIsLike} />
-          ) : (
-            <MdOutlineThumbUpAlt onClick={toggleIsLike} />
-          )}
-          <MdOutlineShare />
-        </LikeAndShare>
+        <LikeAndShare isLike={isLike} onClick={toggleIsLike} />
       </Side>
       <Main>{children}</Main>
-      <Side direction="right">
-        <p>자바스크립트 번들러 만들기</p>
-        <p>자바스크립트 </p>
-        <p>자바스크립트 만들기</p>
-      </Side>
+      <Side direction="right"></Side>
     </Wrapper>
   );
 };
@@ -69,18 +58,15 @@ const Side = styled.section<{
         return css`
           align-items: "flex-end";
           left: 20rem;
-          &::before {
-            position: absolute;
-            content: "";
-            height: 100%;
-            border: 1px solid;
-            left: -10px;
+          p {
+            color: #6b6b6b;
+            cursor: pointer;
           }
         `;
     }
   }}
   p {
-    margin: 0;
+    margin: 3px 0;
     font-size: 14px;
     line-height: ${theme.FONT.SMALL.lineHeight};
   }
@@ -93,22 +79,5 @@ const Main = styled.main`
   width: 60%;
   @media (max-width: 568px) {
     width: 90%;
-  }
-`;
-
-const LikeAndShare = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  border: 1px solid;
-  border-radius: 50px;
-  padding: 1rem;
-  font-size: 40px;
-  svg {
-    margin: 5px;
-    border: 1px solid ${theme.COLORS.MAINDARK};
-    border-radius: 50%;
-    padding: 8px;
-    cursor: pointer;
   }
 `;
