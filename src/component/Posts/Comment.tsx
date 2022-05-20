@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import theme from "../../styles/theme";
-import { WriterInfoType } from "../../types/comment";
+import { CommentType } from "../../types/comment";
 
-const Comment = ({ writerInfo }: WriterInfoType) => {
-  const { img, name, date, description } = writerInfo;
+const Comment = (comment: CommentType) => {
+  const { img, name, date, description } = comment;
   const [year, mounth, day] = date.split("-");
 
   return (

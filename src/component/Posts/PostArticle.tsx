@@ -4,24 +4,14 @@ import theme from "../../styles/theme";
 
 const MarkdownViewer = dynamic(() => import("./MarkdownViewer"), { ssr: false });
 
-const markdown = `
-  # h1
+interface Props {
+  description: string;
+}
 
-  ## h2
-
-  **굵게**
-
-  \`\`\`javascript
-    const a = "string";
-  \`\`\`
-
-  \`hi\`
-`;
-
-const PostArticle = () => {
+const PostArticle = ({ description }: Props) => {
   return (
     <Wrapper>
-      <MarkdownViewer initialValue={markdown} />
+      <MarkdownViewer initialValue={description} />
     </Wrapper>
   );
 };

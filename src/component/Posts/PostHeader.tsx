@@ -2,27 +2,35 @@ import React from "react";
 import styled from "styled-components";
 import theme from "../../styles/theme";
 
-const Header = () => {
+interface Props {
+  title: string;
+  date: string;
+  writer: string;
+  tags?: string[];
+}
+
+const Header = ({ title, date, writer, tags }: Props) => {
+  const [year, mounth, day] = date.split("-");
   return (
     <Wrapper>
       <Title>
-        <h1>타이틀</h1>
+        <h1>{title}</h1>
       </Title>
       <WriteInfo>
-        <b>@soonki</b>
-        <span>2022년 05월 22일</span>
+        <b>{writer}</b>
+        <span>{`${year}년 ${mounth}월 ${day}일`}</span>
       </WriteInfo>
-      <Tags>
-        <li>
-          <button>react</button>
-        </li>
-        <li>
-          <button>react</button>
-        </li>
-        <li>
-          <button>react</button>
-        </li>
-      </Tags>
+      {tags && (
+        <Tags>
+          {tags.map((tag, index) => {
+            return (
+              <li key={index}>
+                <button>{tag}</button>
+              </li>
+            );
+          })}
+        </Tags>
+      )}
     </Wrapper>
   );
 };

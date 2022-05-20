@@ -1,19 +1,19 @@
 import styled from "styled-components";
 import theme from "../../styles/theme";
-import { CommentType } from "../../types/comment";
+import { CommentListType } from "../../types/comment";
 import Comment from "./Comment";
 
-const CommentSection = ({ writerInfoList }: CommentType) => {
+const CommentSection = ({ commentList }: CommentListType) => {
   return (
     <Wrapper>
-      <h3>{`${writerInfoList.length}개의 댓글`}</h3>
+      <h3>{`${commentList.length}개의 댓글`}</h3>
       <div className="comment-container">
         <textarea placeholder="댓글을 입력하세요" />
         <button id="comment-btn">댓글 입력</button>
       </div>
       <ul>
-        {writerInfoList.map((writerInfo) => {
-          return <Comment {...writerInfo} />;
+        {commentList.map((comment) => {
+          return <Comment key={comment.id} {...comment} />;
         })}
       </ul>
     </Wrapper>
