@@ -35,12 +35,7 @@ const Home: NextPage = () => {
       <TopBar />
       <div style={{ maxHeight: "500px", margin: "2rem 0 4rem 0" }}>
         <h3 style={{ padding: "0 6rem", margin: "0" }}>이번주 핫한 게시물</h3>
-        <Carousel
-          slideToShow={device === "desktop" ? 5 : 2}
-          isArrowShow={false}
-          isAutoplay={false}
-          autoplaySpeed={8000}
-        >
+        <Carousel slideToShow={device === "desktop" ? 5 : 2} autoplaySpeed={8000} arrowLocation="bottom-side">
           <Card {...cardProps} width={"100%"} />
           <Card {...cardProps} width={"100%"} />
           <Card {...cardProps} width={"100%"} />
