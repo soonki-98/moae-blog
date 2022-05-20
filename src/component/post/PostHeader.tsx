@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import theme from "../../styles/theme";
 
-const PostHeader = () => {
+const Header = () => {
   return (
     <Wrapper>
       <Title>
@@ -27,7 +27,9 @@ const PostHeader = () => {
   );
 };
 
-export default React.memo(PostHeader);
+const PostHeader = React.memo(Header);
+
+export default PostHeader;
 
 const Wrapper = styled.div`
   padding-right: 4rem;
