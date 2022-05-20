@@ -31,7 +31,7 @@ const HotPosts = () => {
   return (
     <Wrapper>
       <h3>이주의 게시글</h3>
-      <Carousel slideToShow={device === "desktop" ? 5 : 2} autoplaySpeed={8000} arrowLocation="bottom-side">
+      <Carousel slideToShow={device === "desktop" ? 5 : 2} autoplaySpeed={8000} arrowLocation="bottom-side" isAutoplay>
         <Card {...cardProps} width={"100%"} />
         <Card {...cardProps} width={"100%"} />
         <Card {...cardProps} width={"100%"} />
