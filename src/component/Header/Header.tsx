@@ -3,8 +3,13 @@ import { GoSearch } from "react-icons/go";
 import theme from "../../styles/theme";
 import React from "react";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 const Header = () => {
+  const clickToLogin = () => {
+    signIn("google");
+  };
+
   return (
     <Wrapper>
       <h1>
@@ -14,7 +19,9 @@ const Header = () => {
         <button id="search-btn">
           <GoSearch size={20} />
         </button>
-        <button id="login-btn">로그인</button>
+        <button id="login-btn" onClick={clickToLogin}>
+          로그인
+        </button>
       </section>
     </Wrapper>
   );
