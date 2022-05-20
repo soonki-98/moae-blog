@@ -8,6 +8,7 @@ import { Header } from "../Header";
 interface Props {
   type?: "scrollHeader";
   location?: "post";
+  user?: string;
 }
 
 interface ScrollType {
@@ -16,12 +17,13 @@ interface ScrollType {
   scrollUpTimes: number;
 }
 
-const TopBar = ({ type, location }: Props) => {
+const TopBar = ({ type, location, user }: Props) => {
   const [pageY, setPageY] = useState<ScrollType>({ value: 0, direction: "down", scrollUpTimes: 0 });
 
   const detectScroll = useCallback(() => {
     setPageY(({ value, scrollUpTimes }) => {
-      if (value > window.scrollY) return { value: window.scrollY, direction: "up", scrollUpTimes: scrollUpTimes + 1 };
+      if (value > window.scrollY)
+        return { value: window.scrollY, direction: "up", scrollUpTimes: scrollUpTimes + 1 };
       else return { value: window.scrollY, direction: "down", scrollUpTimes: scrollUpTimes - 1 };
     });
   }, [pageY]);
@@ -35,7 +37,7 @@ const TopBar = ({ type, location }: Props) => {
 
   return (
     <Container type={type} pageY={pageY}>
-      <Header />
+      <Header user={user} />
       {location !== "post" && location !== "write" && <Categori />}
     </Container>
   );

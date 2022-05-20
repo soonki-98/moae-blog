@@ -14,8 +14,8 @@ const Post = () => {
   ];
   return (
     <div>
-      <TopBar type="scrollHeader" location="post" />
-      <TopBar location="post" />
+      <TopBar type="scrollHeader" location="post" user="soonki" />
+      <TopBar location="post" user="soonki" />
       <PostContainer>
         <PostHeader />
         <PostArticle />

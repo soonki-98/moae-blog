@@ -7,14 +7,25 @@ import { useSession } from "next-auth/react";
 import UserSection from "./UserSection";
 import LoginSection from "./LoginSection";
 
-const Header = () => {
+interface Props {
+  user?: string;
+}
+
+const Header = ({ user }: Props) => {
   const session = useSession();
 
   return (
     <Wrapper>
-      <h1>
-        <Link href="/.">Moaeblog</Link>
-      </h1>
+      <div className="title">
+        <h1>
+          <Link href="/.">Moaeblog</Link>
+        </h1>
+        {user && (
+          <h1 id="user">
+            <Link href={`/${user}`}>{user}</Link>
+          </h1>
+        )}
+      </div>
       <section>
         <button id="search-btn">
           <GoSearch size={20} />
@@ -33,9 +44,16 @@ const Wrapper = styled.header`
   justify-content: space-between;
   width: 100%;
   height: 4rem;
+  .title {
+    display: flex;
+  }
   h1 {
     margin: 0;
+    margin-right: 1rem;
     color: ${theme.COLORS.MAIN};
+  }
+  #user {
+    color: #b1b1b1;
   }
   section {
     display: flex;
