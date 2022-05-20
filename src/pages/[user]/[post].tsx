@@ -1,4 +1,4 @@
-import { CommentSection, PostArticle, PostContainer, PostHeader } from "../../component/Post";
+import { CommentSection, PostArticle, PostContainer, PostHeader } from "../../component/Posts";
 import TopBar from "../../component/TopBar/TopBar";
 
 const Post = () => {
