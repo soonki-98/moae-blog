@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { CardSection } from "../component/Card";
 import Card from "../component/Card/Card";
+import Carousel from "../component/Carousel/Carousel";
 import TopBar from "../component/TopBar/TopBar";
 
 const Home: NextPage = () => {
@@ -24,7 +25,38 @@ const Home: NextPage = () => {
     <div>
       <TopBar type="scrollHeader" />
       <TopBar />
+      <div style={{ maxHeight: "500px", margin: "2rem 0 4rem 0" }}>
+        <h3 style={{ padding: "0 6rem", margin: "0" }}>이번주 핫한 게시물</h3>
+        <Carousel slideToShow={5} isArrowShow={false} isAutoplay autoplaySpeed={8000}>
+          <Card {...cardProps} width={"100%"} />
+          <Card {...cardProps} width={"100%"} />
+          <Card {...cardProps} width={"100%"} />
+          <Card {...cardProps} width={"100%"} />
+          <Card {...cardProps} width={"100%"} />
+          <Card {...cardProps} width={"100%"} />
+          <Card {...cardProps} width={"100%"} />
+          <Card {...cardProps} width={"100%"} />
+          <Card {...cardProps} width={"100%"} />
+          <Card {...cardProps} width={"100%"} />
+        </Carousel>
+      </div>
       <CardSection>
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
+        <Card {...cardProps} />
         <Card {...cardProps} />
         <Card {...cardProps} />
         <Card {...cardProps} />
