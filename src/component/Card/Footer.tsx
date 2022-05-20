@@ -26,6 +26,7 @@ const Wrapper = styled.div`
   width: 100%;
   padding: 1rem;
   padding-top: 0;
+  background-color: ${theme.COLORS.BG1};
   #writer {
     display: flex;
     align-items: center;

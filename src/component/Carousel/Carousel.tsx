@@ -158,6 +158,9 @@ const Wrapper = styled.div<{
   }}
   .icon-wrapper {
     font-size: 25px;
+    svg {
+      color: #ececec;
+    }
   }
 `;
 

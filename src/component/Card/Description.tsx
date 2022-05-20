@@ -28,6 +28,7 @@ export default Description;
 const Wrapper = styled.div`
   width: 100%;
   padding: 1rem;
+  background-color: ${theme.COLORS.BG1};
   #title {
     h6 {
       height: 20px;
