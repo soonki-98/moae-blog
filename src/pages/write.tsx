@@ -1,16 +1,24 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { PostEditor, MarkdownPostHeader } from "../component/MarkdownRender";
 import SubmitContainer from "../component/MarkdownRender/SubmitContainer";
 import theme from "../styles/theme";
 
 const Write = () => {
+  const [device, setDevice] = useState<"desktop" | "mobile">("desktop");
+
+  useEffect(() => {
+    if (window.document.documentElement.clientWidth <= 568) setDevice("mobile");
+    else setDevice("desktop");
+  }, []);
+
   return (
     <div>
       <MarkdownPostHeader />
       <PostWrapper>
         <PostEditor />
       </PostWrapper>
-      <SubmitContainer />
+      {device === "mobile" && <SubmitContainer />}
     </div>
   );
 };
