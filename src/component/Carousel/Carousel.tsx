@@ -198,4 +198,7 @@ const ChildrenWrapper = styled.div<{
       `;
     }
   }}
+  @media (max-width: 568px) {
+    padding: 0;
+  }
 `;

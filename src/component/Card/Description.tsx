@@ -30,6 +30,10 @@ const Wrapper = styled.div`
   padding: 1rem;
   #title {
     h6 {
+      height: 20px;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      overflow: hidden;
       margin: 0;
     }
   }

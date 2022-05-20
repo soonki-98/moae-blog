@@ -9,7 +9,7 @@ const PostHeader = () => {
   useEffect(() => {
     if (window.document.documentElement.clientWidth <= 568) setDevice("mobile");
     else setDevice("desktop");
-  });
+  }, []);
 
   return (
     <Wrapper>
