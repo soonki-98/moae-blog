@@ -53,12 +53,6 @@ const CategoriSection = styled.section`
     margin: 0;
   }
   @media (max-width: 568px) {
-    ul {
-      width: 100%;
-      overflow: hidden;
-    }
-    h5 {
-      font-size: ${theme.FONT.HEAD6};
-    }
+    display: none;
   }
 `;

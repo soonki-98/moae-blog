@@ -64,6 +64,7 @@ const Wrapper = styled.div`
 
   @media (max-width: 568px) {
     h3 {
+      padding: 0 1rem;
       font-size: ${theme.FONT.HEAD5.fontSize};
     }
   }
