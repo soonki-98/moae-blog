@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { GoSearch } from "react-icons/go";
 import theme from "../../styles/theme";
 import React from "react";
-import Link from "next/link";
 import { useSession } from "next-auth/react";
 import UserSection from "./UserSection";
 import LoginSection from "./LoginSection";
+import TitleSection from "./TitleSection";
 
 interface Props {
   user?: string;
@@ -16,16 +16,7 @@ const Header = ({ user }: Props) => {
 
   return (
     <Wrapper>
-      <div className="title">
-        <h1>
-          <Link href="/.">Moaeblog</Link>
-        </h1>
-        {user && (
-          <h1 id="user">
-            <Link href={`/${user}`}>{user}</Link>
-          </h1>
-        )}
-      </div>
+      <TitleSection user={user} />
       <section>
         <button id="search-btn">
           <GoSearch size={20} />
@@ -44,17 +35,6 @@ const Wrapper = styled.header`
   justify-content: space-between;
   width: 100%;
   height: 4rem;
-  .title {
-    display: flex;
-  }
-  h1 {
-    margin: 0;
-    margin-right: 1rem;
-    color: ${theme.COLORS.MAIN};
-  }
-  #user {
-    color: #b1b1b1;
-  }
   section {
     display: flex;
     button {
@@ -77,7 +57,6 @@ const Wrapper = styled.header`
       opacity: 0.9;
     }
   }
-
   #search-btn {
     border-radius: 50%;
     background: none;

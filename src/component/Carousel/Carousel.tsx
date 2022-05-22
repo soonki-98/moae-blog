@@ -69,11 +69,21 @@ const Carousel = ({
     [showIndex]
   );
 
-  const onMouseDown = (e: any) => {
+  const onTouchStart = (e: React.TouchEvent) => {
+    setCoordinateX(e.touches[0].clientX);
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (coordinateX - e.changedTouches[0].clientX > 100) showNext();
+    if (e.changedTouches[0].clientX - coordinateX > 100) showPrev();
+    setCoordinateX(0);
+  };
+
+  const onMouseDown = (e: React.MouseEvent) => {
     setCoordinateX(e.clientX);
   };
 
-  const onMouseUp = (e: any) => {
+  const onMouseUp = (e: React.MouseEvent) => {
     if (coordinateX - e.clientX > 100) showNext();
     if (e.clientX - coordinateX > 100) showPrev();
     setCoordinateX(0);
@@ -85,8 +95,8 @@ const Carousel = ({
       width={width}
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
-      onTouchStart={onMouseDown}
-      onTouchEnd={onMouseUp}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       <h3>이주의 게시글</h3>
       {isArrowShow && (
