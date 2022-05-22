@@ -1,16 +1,12 @@
-import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { PostEditor, MarkdownPostHeader } from "../component/MarkdownRender";
 import SubmitContainer from "../component/MarkdownRender/SubmitContainer";
+import deviceAtom from "../recoil/deviceAtom";
 import theme from "../styles/theme";
 
 const Write = () => {
-  const [device, setDevice] = useState<"desktop" | "mobile">("desktop");
-
-  useEffect(() => {
-    if (window.document.documentElement.clientWidth <= 568) setDevice("mobile");
-    else setDevice("desktop");
-  }, []);
+  const device = useRecoilValue(deviceAtom);
 
   return (
     <div>

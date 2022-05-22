@@ -1,16 +1,12 @@
-import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import deviceAtom from "../../recoil/deviceAtom";
 import theme from "../../styles/theme";
 import { Card } from "../Card";
 import Carousel from "../Carousel/Carousel";
 
 const HotPosts = () => {
-  const [device, setDevice] = useState<"desktop" | "mobile">("desktop");
-
-  useEffect(() => {
-    if (window.document.documentElement.clientWidth <= 568) setDevice("mobile");
-    else setDevice("desktop");
-  }, []);
+  const device = useRecoilValue(deviceAtom);
 
   const userInfo = {
     profileImage:
