@@ -4,16 +4,23 @@ import GlobalStyle from "../styles/globalStyle";
 import theme from "../styles/theme";
 import { SessionProvider } from "next-auth/react";
 import React, { useEffect } from "react";
-import { RecoilRoot, useSetRecoilState } from "recoil";
+import { RecoilRoot, useRecoilValue, useSetRecoilState } from "recoil";
 import deviceAtom from "../recoil/deviceAtom";
+import searchBarAtom from "../recoil/searchBarAtom";
 
 const GlobalRecoilStateWrapper = ({ children }: { children: React.ReactNode }) => {
   const setDevice = useSetRecoilState(deviceAtom);
+  const isSearchBarOpen = useRecoilValue(searchBarAtom);
 
   useEffect(() => {
     if (window.document.documentElement.clientWidth <= 568) setDevice("mobile");
     else setDevice("desktop");
   }, []);
+
+  useEffect(() => {
+    if (isSearchBarOpen) window.document.documentElement.style.overflow = "hidden";
+    else window.document.documentElement.style.overflow = "auto";
+  }, [isSearchBarOpen]);
 
   return <div>{children}</div>;
 };

@@ -31,6 +31,7 @@ const HotPosts = () => {
         autoplaySpeed={8000}
         arrowLocation="bottom-side"
         isAutoplay
+        isArrowShow={false}
       >
         <Card {...cardProps} width={"100%"} />
         <Card {...cardProps} width={"100%"} />

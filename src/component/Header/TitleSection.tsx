@@ -48,4 +48,10 @@ const Wrapper = styled.div`
       cursor: pointer;
     }
   }
+
+  @media (max-width: 568px) {
+    h1 {
+      font-size: ${theme.FONT.HEAD4};
+    }
+  }
 `;

@@ -6,6 +6,9 @@ import { useSession } from "next-auth/react";
 import UserSection from "./UserSection";
 import LoginSection from "./LoginSection";
 import TitleSection from "./TitleSection";
+import { useRecoilState } from "recoil";
+import searchBarAtom from "../../recoil/searchBarAtom";
+import SearchSection from "./SearchSection";
 
 interface Props {
   user?: string;
@@ -13,16 +16,22 @@ interface Props {
 
 const Header = ({ user }: Props) => {
   const session = useSession();
+  const [isSearchBarOpen, setIsSearchBarOpen] = useRecoilState(searchBarAtom);
+
+  const toggleIsSearchBarOpen = () => {
+    setIsSearchBarOpen(!isSearchBarOpen);
+  };
 
   return (
     <Wrapper>
       <TitleSection user={user} />
       <section>
-        <button id="search-btn">
+        <button id="search-btn" onClick={toggleIsSearchBarOpen}>
           <GoSearch size={20} />
         </button>
         {session.data ? <UserSection img={session.data.user?.image} /> : <LoginSection />}
       </section>
+      {isSearchBarOpen && <SearchSection />}
     </Wrapper>
   );
 };
@@ -69,6 +78,14 @@ const Wrapper = styled.header`
   @media (max-width: 568px) {
     #write-btn {
       display: none;
+    }
+    .login-btn {
+      font-size: ${theme.FONT.SMALL.fontSize};
+    }
+    section {
+      button {
+        margin: 0;
+      }
     }
   }
 `;

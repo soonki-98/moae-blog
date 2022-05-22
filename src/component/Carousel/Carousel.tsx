@@ -148,7 +148,7 @@ const Wrapper = styled.div<{
   width?: string;
 }>`
   background: ${theme.COLORS.MAIN};
-  padding: 2rem 0 4rem 0;
+  padding: 2rem 0;
   width: ${(props) => props.width || "100%"};
   position: relative;
   margin: 0 auto;
@@ -202,6 +202,9 @@ const Wrapper = styled.div<{
     svg {
       color: #ececec;
     }
+  }
+  @media (max-width: 568px) {
+    padding: 1rem 0;
   }
 `;
 
