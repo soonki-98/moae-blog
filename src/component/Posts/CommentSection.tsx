@@ -1,14 +1,24 @@
+import React, { useRef } from "react";
 import styled from "styled-components";
 import theme from "../../styles/theme";
 import { CommentListType } from "../../types/comment";
 import Comment from "./Comment";
 
 const CommentSection = ({ commentList }: CommentListType) => {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const onKeyUp = () => {
+    if (!textareaRef.current) return;
+    textareaRef.current.style.height = "auto";
+    const height = textareaRef.current.scrollHeight;
+    textareaRef.current.style.height = `${height + 8}px`;
+  };
+
   return (
     <Wrapper>
       <h3>{`${commentList.length}개의 댓글`}</h3>
       <div className="comment-container">
-        <textarea placeholder="댓글을 입력하세요" />
+        <textarea ref={textareaRef} placeholder="댓글을 입력하세요" onKeyUp={onKeyUp} />
         <button id="comment-btn">댓글 입력</button>
       </div>
       <ul>
@@ -39,6 +49,11 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    textarea {
+      height: auto;
+      resize: none;
+      min-height: 70px;
+    }
   }
   #comment-btn {
     margin-top: 1rem;
