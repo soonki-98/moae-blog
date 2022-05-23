@@ -1,15 +1,14 @@
-import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import searchBarAtom from "../../recoil/searchBarAtom";
 import theme from "../../styles/theme";
 import { IoMdArrowBack } from "react-icons/io";
 import { GoSearch } from "react-icons/go";
+import { useRouter } from "next/router";
 
 const SearchSection = () => {
-  const setSearchBarOpen = useSetRecoilState(searchBarAtom);
+  const router = useRouter();
 
   const closeSection = () => {
-    setSearchBarOpen(false);
+    router.back();
   };
 
   return (
