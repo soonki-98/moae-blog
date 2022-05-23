@@ -19,7 +19,6 @@ const PostArticle = ({ description }: Props) => {
 export default PostArticle;
 
 const Wrapper = styled.article`
-  padding-right: 4rem;
   margin-top: 3rem;
   width: 100%;
   p {

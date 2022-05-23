@@ -39,9 +39,7 @@ const PostHeader = React.memo(Header);
 
 export default PostHeader;
 
-const Wrapper = styled.div`
-  padding-right: 4rem;
-`;
+const Wrapper = styled.div``;
 
 const Title = styled.div`
   h1 {

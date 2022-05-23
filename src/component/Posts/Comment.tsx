@@ -58,4 +58,10 @@ const WritterInfo = styled.div`
   p {
     margin: 0;
   }
+  @media (max-width: 568px) {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
 `;

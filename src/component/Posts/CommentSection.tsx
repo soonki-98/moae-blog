@@ -34,7 +34,6 @@ export default CommentSection;
 
 const Wrapper = styled.div`
   margin: 4rem 0;
-  padding-right: 4rem;
   textarea {
     width: 100%;
     padding: 1rem;
